@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DataLayer.PageGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("گروه جدید", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupTitle)
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.GroupID }) |
+            @Html.ActionLink("جزئیات", "Details", new { id=item.GroupID }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.GroupID })
+        </td>
+    </tr>
+}
+
+</table>
